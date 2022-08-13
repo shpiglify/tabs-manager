@@ -1,20 +1,38 @@
 const self = this;
 
-chrome.tabs.query(
-    {},
-    async function(tabs) {
-        self.tabs = tabs;
-        console.log(tabs);
-        for (let i = 0; i < tabs.length ; i++) {
-            if(tabs[i].url === "https://www.metropolinet.co.il/"){
-                console.log('metro is found!')
-                await chrome.tabs.update(tabs[i].id, { active: true });
-                await chrome.windows.update(tabs[i].windowId, { focused: true });
+function changeTab(tabUrl){
+
+    chrome.tabs.query(
+        {},
+        async function(tabs) {
+            self.tabs = tabs;
+            console.log(tabs);
+            for (let i = 0; i < tabs.length ; i++) {
+                if(tabs[i].url === tabUrl){
+                    await chrome.tabs.update(tabs[i].id, { active: true });
+                    await chrome.windows.update(tabs[i].windowId, { focused: true });
+                }
+
             }
-
         }
-    }
-  )
-  console.log('hi')
+    )
+}
 
 
+const onMessageListener =  function(request, sender, sendResponse) {
+    console.log(sender.tab ?
+                "from a content script:" + sender.tab.url :
+                "from the extension");
+    if (request.tabUrl){
+      changeTab(request.tabUrl);
+      sendResponse({farewell: "goodbye"});
+  };
+  }
+
+  chrome.runtime.onMessage.addListener(
+    onMessageListener
+  );
+
+  chrome.runtime.onMessageExternal.addListener(
+    onMessageListener
+  );

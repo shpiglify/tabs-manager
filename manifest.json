@@ -23,5 +23,8 @@
       "matches": ["https://*.ynet.co.il/*","https://*.metropolinet.co.il/*"],
       "js": ["contentScript.js"]
     }
-  ]
+  ],
+  "externally_connectable": {
+    "matches": ["https://*.ynet.co.il/*","https://*.metropolinet.co.il/*"]
+  }
 }
