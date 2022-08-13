@@ -27,12 +27,13 @@ const onMessageListener =  function(request, sender, sendResponse) {
       changeTab(request.tabUrl);
       sendResponse({farewell: "goodbye"});
   };
-  }
+}
 
-  chrome.runtime.onMessage.addListener(
-    onMessageListener
-  );
+// define listeners for messages from contentScript & webpages scripts
+chrome.runtime.onMessage.addListener(
+onMessageListener
+);
 
-  chrome.runtime.onMessageExternal.addListener(
-    onMessageListener
-  );
+chrome.runtime.onMessageExternal.addListener(
+onMessageListener
+);
