@@ -17,11 +17,11 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://*.ynet.co.il/*"],
+      "matches": ["https://*.ynet.co.il/*","http://172.30.200.63:8080/apex/*"],
       "js": ["contentScript.js"]
     }
   ],
   "externally_connectable": {
-    "matches": ["https://*.ynet.co.il/*","https://*.metropolinet.co.il/*","http://127.0.0.1:5500/example.html"]
+    "matches": ["https://*.ynet.co.il/*","https://*.metropolinet.co.il/*","http://127.0.0.1:5500/example.html","http://172.30.200.63:8080/apex/*"]
   }
 }

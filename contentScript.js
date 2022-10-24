@@ -1,5 +1,6 @@
-alert('content script injected!')
+document.title = "APEX DEMO";
 
+alert('content script injected!')
 
 function sendMessage(){
     // chrome.runtime.sendMessage({tabUrl: "https://www.metropolinet.co.il/",shouldClose:false}, function(response) {
@@ -14,7 +15,7 @@ function sendMessageClose(){
     // chrome.runtime.sendMessage({tabUrl: "https://www.metropolinet.co.il/",shouldClose:false}, function(response) {
     //     console.log(response.farewell);
     // });
-    chrome.runtime.sendMessage({tabUrl: "https://www.metropolinet.co.il/",tabRemoveUrl:"https://www.ynet.co.il/home/0,7340,L-8,00.html"}, function(response) {
+    chrome.runtime.sendMessage({tabUrl: "https://www.metropolinet.co.il/",tabRemoveUrl:window.location.href}, function(response) {
         console.log(response.farewell);
     })
 }
