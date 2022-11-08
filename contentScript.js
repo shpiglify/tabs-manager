@@ -2,19 +2,26 @@ document.title = "APEX DEMO";
 
 alert('content script injected!')
 
+function displayAllOpenTabs(){
+    chrome.runtime.sendMessage({type:'display-tabs'}, function(response) {
+        console.log(response);
+    })
+}
+
+function closeAll(){
+    chrome.runtime.sendMessage({type:'close-all',tabRemoveUrl:window.location.href}, function(response) {
+        console.log(response);
+    })
+}
+
+
 function sendMessage(){
-    // chrome.runtime.sendMessage({tabUrl: "https://www.metropolinet.co.il/",shouldClose:false}, function(response) {
-    //     console.log(response.farewell);
-    // });
     chrome.runtime.sendMessage({tabUrl: "https://www.metropolinet.co.il/",tabRemoveUrl:""}, function(response) {
         console.log(response.farewell);
     })
 }
 
 function sendMessageClose(){
-    // chrome.runtime.sendMessage({tabUrl: "https://www.metropolinet.co.il/",shouldClose:false}, function(response) {
-    //     console.log(response.farewell);
-    // });
     chrome.runtime.sendMessage({tabUrl: "https://www.metropolinet.co.il/",tabRemoveUrl:window.location.href}, function(response) {
         console.log(response.farewell);
     })
@@ -42,6 +49,17 @@ button2.style.backgroundColor = "pink";
 button2.style.color = "black";
 button2.addEventListener("click", sendMessageClose);
 
+let button3 = document.createElement("button");
+button3.innerHTML = "Close all";
+button3.style.display = "block";
+button3.style.position = "sticky";
+button3.style.zIndex = "10000";
+button3.style.backgroundColor = "green";
+button3.style.color = "black";
+button3.addEventListener("click", closeAll);
 
+
+
+document.body.prepend(button3);
 document.body.prepend(button2);
 document.body.prepend(button);
