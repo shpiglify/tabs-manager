@@ -70,3 +70,5 @@ onMessageListener
 chrome.runtime.onMessageExternal.addListener(
 onMessageListener
 );
+
+chrome.tabs.onRemoved.addListener((tabId,info)=>console.log('tab was removed',tabId,info));

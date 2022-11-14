@@ -2,11 +2,11 @@ document.title = "APEX DEMO";
 
 alert('content script injected!')
 
-function displayAllOpenTabs(){
-    chrome.runtime.sendMessage({type:'display-tabs'}, function(response) {
-        console.log(response);
-    })
-}
+// function displayAllOpenTabs(){
+//     chrome.runtime.sendMessage({type:'display-tabs'}, function(response) {
+//         console.log(response);
+//     })
+// }
 
 function closeAll(){
     chrome.runtime.sendMessage({type:'close-all',tabRemoveUrl:window.location.href}, function(response) {
@@ -63,3 +63,17 @@ button3.addEventListener("click", closeAll);
 document.body.prepend(button3);
 document.body.prepend(button2);
 document.body.prepend(button);
+
+//
+// var elt = document.createElement("script");
+// elt.innerHTML = "window.onbeforeunload = function() {return \"Are you sure you wish to leave the page?\";}"
+// document.head.appendChild(elt);
+
+var actualCode = `
+window.onbeforeunload = function() {return "Are you sure you wish to leave the page?";}
+`;
+
+var script = document.createElement('script');
+script.textContent = actualCode;
+(document.head||document.documentElement).appendChild(script);
+// script.remove();
