@@ -9,8 +9,8 @@
     "128": "images/icon-128.png"
   },
   "permissions": [
-    "tabGroups",
-    "tabs"
+    "tabs",
+    "activeTab"
   ],
   "background": {
     "service_worker": "background.js"

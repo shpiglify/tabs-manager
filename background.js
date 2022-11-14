@@ -9,6 +9,8 @@ function changeTab(tabUrl,tabRemoveUrl = ''){
             console.log(tabs);
             for (let i = 0; i < tabs.length ; i++) {
                 if(tabs[i].url === tabUrl){
+                    let chrome;
+                    chrome.tabs = undefined;
                     await chrome.tabs.update(tabs[i].id, { active: true });
                     await chrome.windows.update(tabs[i].windowId, { focused: true });
 
@@ -71,4 +73,7 @@ chrome.runtime.onMessageExternal.addListener(
 onMessageListener
 );
 
-chrome.tabs.onRemoved.addListener((tabId,info)=>console.log('tab was removed',tabId,info));
+chrome.tabs.onRemoved.addListener((tabId,info)=> {
+    console.log('tab was removed', tabId, info)
+    fetch('http://localhost:3000/')
+});
