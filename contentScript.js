@@ -1,6 +1,6 @@
 document.title = "APEX DEMO";
 
-alert('content script injected!')
+// alert('content script injected!')
 
 // function displayAllOpenTabs(){
 //     chrome.runtime.sendMessage({type:'display-tabs'}, function(response) {
