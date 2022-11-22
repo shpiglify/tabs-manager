@@ -15,7 +15,7 @@
     console.log('hello worlddd');
     document.querySelector('#change-page').addEventListener("click",
         () => {
-            chrome.runtime.sendMessage('fegainhmidjapaakdkcjdncnegchhfoc',{tabUrl: "https://www.metropolinet.co.il/"}, 
+            chrome.runtime.sendMessage('fegainhmidjapaakdkcjdncnegchhfoc',{tabUrl: "http://172.30.200.65:7778/forms/frmservlet?config=metro&userid=T/504@orc1&separateframe=false"},
             function(response) {
                 console.log(response.farewell);
             });

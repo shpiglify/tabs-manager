@@ -16,13 +16,13 @@ function closeAll(){
 
 
 function sendMessage(){
-    chrome.runtime.sendMessage({tabUrl: "https://www.metropolinet.co.il/",tabRemoveUrl:""}, function(response) {
+    chrome.runtime.sendMessage({tabUrl: "http://172.30.200.65:7778/forms/frmservlet?config=metro&userid=T/504@orc1&separateframe=false",tabRemoveUrl:""}, function(response) {
         console.log(response.farewell);
     })
 }
 
 function sendMessageClose(){
-    chrome.runtime.sendMessage({tabUrl: "https://www.metropolinet.co.il/",tabRemoveUrl:window.location.href}, function(response) {
+    chrome.runtime.sendMessage({tabUrl: "http://172.30.200.65:7778/forms/frmservlet?config=metro&userid=T/504@orc1&separateframe=false\n",tabRemoveUrl:window.location.href}, function(response) {
         console.log(response.farewell);
     })
 }
