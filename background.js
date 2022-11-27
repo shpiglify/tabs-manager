@@ -28,17 +28,6 @@ const onMessageListener = async function(request, sender, sendResponse) {
                 "from the extension");
     console.log(request)
 
-    // if(request.type === 'display-tabs'){
-    //     console.log('we are hereee')
-    //     await chrome.tabs.query(
-    //         {},
-    //         async function(tabs) {
-    //             self.tabs = tabs;
-    //             console.log(tabs);
-    //             sendResponse({hello:"hello"});
-    //         }
-    //     )
-    // }
     if(request.type === 'close-all'){
         chrome.tabs.query(
             {},
@@ -55,10 +44,14 @@ const onMessageListener = async function(request, sender, sendResponse) {
             }
         )
     }
-    if (request.tabUrl){
-      changeTab(request.tabUrl,request.tabRemoveUrl);
+    if (request.type === 'change-tab'){
+      changeTab(request.tabUrl,'');
       sendResponse({farewell: "goodbye"});
   };
+    if (request.type === 'change-and-close'){
+        changeTab(request.tabUrl,request.tabRemoveUrl);
+        sendResponse({farewell: "goodbye"});
+    };
 
 }
 
