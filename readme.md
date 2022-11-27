@@ -7,7 +7,7 @@ install the extension
 
 on ynet.co.il, open the console and paste the following script:
 ```
- chrome.runtime.sendMessage('fegainhmidjapaakdkcjdncnegchhfoc',{tabUrl: "https://www.metropolinet.co.il/"}, function(response) {
+ chrome.runtime.sendMessage('fegainhmidjapaakdkcjdncnegchhfoc',{type:"change-tab", tabUrl: "https://www.metropolinet.co.il/"}, function(response) {
         console.log(response.farewell);
     });
 ```
