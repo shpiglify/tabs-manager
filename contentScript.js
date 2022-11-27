@@ -1,13 +1,5 @@
 document.title = "APEX DEMO";
 
-// alert('content script injected!')
-
-// function displayAllOpenTabs(){
-//     chrome.runtime.sendMessage({type:'display-tabs'}, function(response) {
-//         console.log(response);
-//     })
-// }
-
 function closeAll(){
     chrome.runtime.sendMessage({type:'close-all',tabRemoveUrl:window.location.href}, function(response) {
         console.log(response);
@@ -15,20 +7,16 @@ function closeAll(){
 }
 
 
-function sendMessage(){
-    chrome.runtime.sendMessage({tabUrl: "http://172.30.200.65:7778/forms/frmservlet?config=metro&userid=T/504@orc1&separateframe=false",tabRemoveUrl:""}, function(response) {
+function changeTab(){
+    chrome.runtime.sendMessage({type:'change-tab',tabUrl: "https://www.metropolinet.co.il/"}, function(response) {
         console.log(response.farewell);
     })
 }
 
-function sendMessageClose(){
-    chrome.runtime.sendMessage({tabUrl: "http://172.30.200.65:7778/forms/frmservlet?config=metro&userid=T/504@orc1&separateframe=false\n",tabRemoveUrl:window.location.href}, function(response) {
+function changeAndCloseTab(){
+    chrome.runtime.sendMessage({type:'change-and-close',tabUrl: "https://www.metropolinet.co.il/",tabRemoveUrl:window.location.href}, function(response) {
         console.log(response.farewell);
     })
-}
-
-function closeTab(){
-    window.close();
 }
 
 let button = document.createElement("button");
@@ -38,7 +26,7 @@ button.style.position = "sticky";
 button.style.zIndex = "10000";
 button.style.backgroundColor = "yellow";
 button.style.color = "black";
-button.addEventListener("click", sendMessage);
+button.addEventListener("click", changeTab);
 
 let button2 = document.createElement("button");
 button2.innerHTML = "Change And Close Tab";
@@ -47,7 +35,7 @@ button2.style.position = "sticky";
 button2.style.zIndex = "10000";
 button2.style.backgroundColor = "pink";
 button2.style.color = "black";
-button2.addEventListener("click", sendMessageClose);
+button2.addEventListener("click", changeAndCloseTab);
 
 let button3 = document.createElement("button");
 button3.innerHTML = "Close all";
@@ -63,17 +51,3 @@ button3.addEventListener("click", closeAll);
 document.body.prepend(button3);
 document.body.prepend(button2);
 document.body.prepend(button);
-
-//
-// var elt = document.createElement("script");
-// elt.innerHTML = "window.onbeforeunload = function() {return \"Are you sure you wish to leave the page?\";}"
-// document.head.appendChild(elt);
-
-var actualCode = `
-window.onbeforeunload = function() {return "Are you sure you wish to leave the page?";}
-`;
-
-var script = document.createElement('script');
-script.textContent = actualCode;
-(document.head||document.documentElement).appendChild(script);
-// script.remove();
