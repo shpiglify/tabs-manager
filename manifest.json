@@ -1,5 +1,6 @@
 {
   "manifest_version": 3,
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzYAjIhBgBcFoZPg+iQY/h2cx8ZuZXERbrCIooaQGalXhtA7KlrXjROpsT8QezJqt0BLF06F4OgwDZ6oRrdbzmGY/zgU22LQRs6r70av43vUJLzyTX2/z9Qst8OerZrK1DslSQix53Nrj2xX2PdSlZbuHEXTlfICMBZUt4Dps1G0r4wp9Ql9KMJWP/0HIzoIvjMPpWtMiDDqFqVlf+RKYL8ohZT8VZm1d68JjZgPDlpdN0YAKyCI3rDZcA+sx4h2qjiSCODMHCxi7bv96faZvzDae59Ej3M104T0xJc2ohYUV5yuCpQN9W5edDb0tZG14JrqWAzSKbufBprZI02b+3wIDAQAB",
   "name": "Metropolinet Apex Forms integrator",
   "version": "1.0",
   "icons": {
