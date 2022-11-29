@@ -47,7 +47,8 @@ button3.style.color = "black";
 button3.addEventListener("click", closeAll);
 
 
+// to activate buttons - uncomment following lines:
 
-document.body.prepend(button3);
-document.body.prepend(button2);
-document.body.prepend(button);
+// document.body.prepend(button3);
+// document.body.prepend(button2);
+// document.body.prepend(button);
