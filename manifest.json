@@ -23,6 +23,6 @@
     }
   ],
   "externally_connectable": {
-    "matches": ["https://*.ynet.co.il/*","https://*.metropolinet.co.il/*","http://127.0.0.1:5500/example.html","http://172.30.200.63:8080/apex/*","http://172.30.200.65:7778/forms/frmservlet?config=metro&userid=T/504@orc1&separateframe=false"]
+    "matches": ["https://*.ynet.co.il/*","https://*.metropolinet.co.il/*","http://127.0.0.1:5500/example.html","http://172.30.200.63:8080/apex/*","*://172.30.200.65:7778/*"]
   }
 }
