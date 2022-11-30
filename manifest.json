@@ -23,6 +23,6 @@
     }
   ],
   "externally_connectable": {
-    "matches": ["https://*.ynet.co.il/*","https://*.metropolinet.co.il/*","http://127.0.0.1:5500/example.html","*://172.30.200.65:7778/*","*://172.30.200.63:8080/*"]
+    "matches": ["https://*.ynet.co.il/*","https://*.metropolinet.co.il/*","http://127.0.0.1:5500/example.html","http://172.30.200.65:7778/*","https://172.30.200.65:7778/*","https://172.30.200.63:8080/*","http://172.30.200.63:8080/*"]
   }
 }
